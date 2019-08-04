@@ -1,51 +1,3 @@
-```tex
-\documentclass[a4paper]{article}
-
-\usepackage{fontspec}
-\usepackage{polyglossia}
-%\setmainfont[]{DejaVu Serif}
-
-\begin{document}
-
-Xin chào thế giới. This is Hello World in Vietnamese.
-
-\end{document}
-
-
-\documentclass{report}
-
-\usepackage[utf8]{inputenc}
-```
-
-
-% \title{Memoire}
-% \author{thomas.berton }
-% \date{February 2019}
-
-% Sets page size and margins
-\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-\usepackage{subcaption}
-\usepackage[]{algorithm2e}
-\usepackage{appendix}
-\usepackage[nottoc, notlof, notlot]{tocbibind}
-\usepackage{multirow}
-\usepackage{subfig}
-\usepackage[Glenn]{fncychap}
-\usepackage[shortlabels]{enumitem}
-\usepackage{colortbl}
-\usepackage{enumitem}
-\usepackage{natbib}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{amssymb}
-\usepackage{acronym}
-\usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{epigraph}
-
-\usepackage{babel}
-
-\begin{document}
 
 # Music Emotion Recognition and Classification Database
 
@@ -56,13 +8,13 @@ To address this problem, MIR researchers should establish benchmark emotional da
 
  ## Metadata, audio files and lyrics collection
 
-As said previously, it does not exist a dataset that gained general acceptance. However, some ones stood out from the others and are more often used than others. As instance, it is notably the case of the \textit{Million Song Database}, largely used for MIR tasks \cite{bertin}. For its well-known reputation and ease of use, this is one of the datasets that has been chosen for this thesis. 
-\\
+As said previously, it does not exist a dataset that gained general acceptance. However, some ones stood out from the others and are more often used than others. As instance, it is notably the case of the \textit{Million Song Database}, largely used for MIR tasks. For its well-known reputation and ease of use, this is one of the datasets that has been chosen for this thesis. 
 
-The \textit{Million Song Dataset} (abr. MSD) is provided by The Echo Nest\footnote{Music platform for developers, which was originally a research spin-off from the MIT Media Lab to understand the audio and textual content of recorded music}. It is defined as a "freely-available collection of audio features and metadata for a million contemporary popular music tracks." In other words, the dataset gathers metadata and some features analysis for one million songs. One may precise that it does not include any audio nor emotions. Due to the large set of this set (originally 280 GB) only a subset of it, i.e.\ 10,000 songs (1$\%$ of the global dataset), has been considered to work on it. This subset is also provided by The Echo Nest, and songs are said to be collected randomly from the original MSD. Table 4.1 shows some of the 45 fields associated with each track in the database.
+The Million Song Dataset (abr. MSD) is provided by The Echo Nest\footnote{Music platform for developers, which was originally a research spin-off from the MIT Media Lab to understand the audio and textual content of recorded music. It is defined as a "freely-available collection of audio features and metadata for a million contemporary popular music tracks." In other words, the dataset gathers metadata and some features analysis for one million songs. One may precise that it does not include any audio nor emotions. Due to the large set of this set (originally 280 GB) only a subset of it, i.e. 10,000 songs (1% of the global dataset), has been considered to work on it. This subset is also provided by The Echo Nest, and songs are said to be collected randomly from the original MSD. Table 4.1 shows some of the 45 fields associated with each track in the database.
 
 
-\begin{table}[!h]
+
+<!--\begin{table}[!h]
 \centering
 \begin{tabular}{|c|c|}
   \hline
@@ -84,23 +36,22 @@ The \textit{Million Song Dataset} (abr. MSD) is provided by The Echo Nest\footno
   \hline
 \end{tabular}
 
-\caption{Example of some features for a track in the MSD}
+<!--\caption{Example of some features for a track in the MSD}
 \end{table}
 
 By looking at the features which have been already computed in the MSD, one may ask the interest of having audio files if some of their characteristics have already been computed. The reader should remember that these features have been computed on the whole song and not on the instrumental nor isolated vocals. Downloading the audio files to recompute the different respectively for the vocals and the instrumental is thus necessary.
-\\
+
 
 After collecting information about 10,000 songs, one must obtain the corresponding audio files. To achieve this, a process of two steps have been followed. First the Spotify API provides, given the title and the author of a song, a 30 seconds preview for a song given the name of the artist and the song. Only analyzing 30 seconds of a song for the vocals and instrumental parts is a very common practise in MER and has been proved to be a good practise. Experimental results show that gives better performance for detecting the sentiment of the song rather than the whole song. However, the preview is given in the form of an url, which is not directly downloadable and thus not analyzable. Therefore a second step is required : converting each url into a \textit{wav} file. This step has been achieved by an online converter.
-\\ 
- 
-As said previously, the Million Song Dataset does not include emotion tags in the set itself. To tackle this problem, a common practise consists of linking the songs with another data source, \textit{Last.fm}, which collects the corresponding tags. It is the official website that groups song tags and song similarities of the Million Song Dataset. These tags can be extracted from the online website via the Last.fm API or by the corresponding offline database. In this thesis, the second option has been opted. The database contains two columns : one for the unique song identifier, and one for the corresponding tag(s). The fact the MSD also provides the unique id allows to connect the two databases. Since the tags are subject to some discussion, the section 4.1.3 is dedicated to give more details about them tags their related emotions.
-\\
+
+As said previously, the Million Song Dataset does not include emotion tags in the set itself. To tackle this problem, a common practise consists of linking the songs with another data source, \textit{Last.fm}, which collects the corresponding tags. It is the official website that groups song tags and song similarities of the Million Song Dataset. These tags can be extracted from the online website via the Last.fm API or by the corresponding offline database. In this thesis, the second option has been opted. The database contains two columns : one for the unique song identifier, and one for the corresponding tag(s). The fact the MSD also provides the unique id allows to connect the two databases.Since the tags are subject to some discussion, the section 4.1.3 is dedicated to give more details about them tags their related emotions.
+
 
 Regarding the lyrics, multiple data sources exist such as musiXmatch dataset, which is the official lyrics collection of the Million Song dataset. The lyrics are gathered in a bag-of-words format : the lyrics are defined as a binary vector, where each element of this vector is set a 1 if it is present in a most used 5,000 words dictionary, 0 otherwise. Beyond the fact it is probably easier to use for multiple purposes, distributing lyrics under this format avoid copyright issues too. This database has been used in the beginning of the thesis, but since it removed some freedom (e.g. taking into account stop words or not, only considering 5000 words)
 it was finally dropped. Another database has been thus used : Lyricwiki.org . It is an online database, which is well-known for its broad coverage and classical format. Song title, artist must be given to identify correctly the lyrics. 
 
 ## Isolating Instrumental And Vocals
-Once the audio files and lyrics have been collected, one must separate the vocal from the instrumental. This is a problem known as \textit{source separation} problem. Unfortunately easy-to-use algorithms don't exist for a such task and quality of the results varies .
+Once the audio files and lyrics have been collected, one must separate the vocal from the instrumental. This is a problem known as source separation problem. Unfortunately easy-to-use algorithms don't exist for a such task and quality of the results varies .
 
 
 Hopefully there exists a well-known software, used both by NLP scientists and music producers, called RX7 (manufactured by iZotope) . It provides a powerful interface for audio experiments and it often refers as an excellent software for noise removal . Using this software in the context of Music Information Retrieval is unprecedented. This software has chosen because it provides a \textit{Music Rebalance} option, which is particularly useful for this source separation problem. Once the original audio file is loaded in the software, this option proposes multiple modifications of the audio as shown in Figure 4.1 : tweaking the loudness of the voice, bass and so on. In our case, two setups were important : either isolating the voice, either remove it. This infers the following adjustments shown at (a) and (b). The Gain option is used to adjust the level (dB) of the voice/bass/percussion or the others. The \textit{sensivity} rate defines the percentage of the input signal considered as e.g. Voice by the separation algorithm. Set at low values, this induces the separation algorithm to narrowly define the vocal content of the signal. If the resulting signal contains less audio bleed from the other instruments, this reduces the vocal clarity due to its sharpened approach. Higher values help to reduce this lack of clarity but consider more bleeding from the other elements. For this work, sensivity has been set to its default value : 0,5.
@@ -137,11 +88,11 @@ Still, as the reader can expect, this dataset of tags is not deprived from weakn
 Table 4.2 shows the most 10 frequent tags that can be found in the dataset. It confirms the idea that social tags can be noisy and not directly emotion-related. The fact the "love" term is ranked 5th in the top 10 most frequent tags can give some clues about its ambiguous meaning too. 
 \\
 
-This shows the need of some cleanup. For this reason junk tags and tags with little or no affective meanings have been filtered out. A linguistic resource, \textit{WordNet-Affect}, has been particularly helpful for this task. It is an extension of WordNet defined as "a large lexical database of English nouns, verbs, adjectives and adverbs grouped into sets of synonyms i.e. synsets" . Each synset represent a distinct concept". WordNet-Affect, its extension, provides a powerful support by linking each non-noun or noun tag to the emotion synset it refer. It helped to filter tags which bear an emotional meaning from the non-interesting tags. For instance \textit{WordNet-Affect} would output, given the tag "sadly", the synset "sad", whereas it would output nothing for a "80s" tag.
+This shows the need of some cleanup. For this reason junk tags and tags with little or no affective meanings have been filtered out. A linguistic resource, WordNet-Affect, has been particularly helpful for this task. It is an extension of WordNet defined as "a large lexical database of English nouns, verbs, adjectives and adverbs grouped into sets of synonyms i.e. synsets" . Each synset represent a distinct concept". WordNet-Affect, its extension, provides a powerful support by linking each non-noun or noun tag to the emotion synset it refer. It helped to filter tags which bear an emotional meaning from the non-interesting tags. For instanceWor dNet-Affect would output, given the tag "sadly", the synset "sad", whereas it would output nothing for a "80s" tag.
 
-%% Il faut clarifier les chiffres : combien de tags avec last fm et combien de mots uniques avec wordnet-affect. COmbien matchent ? 
-<!--
-\begin{table}[!h]
+<!--%% Il faut clarifier les chiffres : combien de tags avec last fm et combien de mots uniques avec wordnet-affect. COmbien matchent ? 
+
+<!--\begin{table}[!h]
 \centering
 \begin{tabular}{|c|c|}
     \hline
@@ -172,71 +123,7 @@ This shows the need of some cleanup. For this reason junk tags and tags with lit
 \end{table}
 
 
-The junk tags being filtered out, the useful tags had been  converted into emotional tags. However, by looking closer at some of them, it existed some emotional tags that didn't represent distinguishable meanings. In fact, many of them were synonyms and needed to be grouped together. Hence the 150 remaining emotional tags belonging to and being derived from the same synset in WordNet-Affect were grouped together. Due to its tree-based structure, Wordnet-Affect can easily find the "upper" emotional concept of an emotion. The reader can find an illustration of this tree in annex, at Figure A.3. As result the tags were merged into 19 groups, as shown in Table 4.3.
-\\
-
-For the classification experiments, each category should have enough samples to build reliable model. This is why categories with fewer than 20 songs were dropped, resulting in a database labeled with 15 emotional tags categories. The categories have been dropped are highlighted in blue in the Table 4.3.
 
 
 
 
-
-% \section{Selecting the Songs}
-
-% In a binary classification, each category needs negative samples as well. To create our negative sample set for a given category, an approach consist of chosing songs that are tagged with any of the terms found withing that category but heavily tagged with many other terms. Since a lot of negative samples could fit for each category, songs tagged with at least 15 others terms including mood terms in other categories were selected. 
- 
-% total = 2276
-
-
-\begin{table}[!h]
-\centering
-\begin{tabular}{|c|c|}%c|}
-    \hline
-    \textbf{n$^{\circ}$} & \textbf{Categories} \\  %\textbf{\# of songs} \\
-    \hline
-    1 & calm, comfort, quiet, serene, mellow, chill out, chill \\ % & 170 \\
-    \hline
-    2 & sad, sadness, unhappy, melancholic, melancholy, misery,... \\ % & 187 \\
-    \hline
-    3 & happy, happiness, happy songs, happy music,... \\ % & 118  \\
-    \hline
-    4 & romantic, romantic music, affection, tender, love,...\\ %  & 788 \\
-    \hline
-    5 & upbeat, gleeful, high spirits, zest, enthusiastic,...\\ %  & 220 \\
-    \hline
-    6 & depressed, blue,dark, depressive, dreary,...\\ %  & 50 \\
-    \hline
-    7 & anger, angry, choleric, fury, outraged, rage, hostility, jealousy,..\\ %  & 49 \\
-    \hline
-    8 & grief, heartbreak, mournful, sorrow, sorry,... \\ % & 63 \\
-    \hline
-    9 & dreamy, captivation, admiration, awe, worship,... \\ % & 40 \\
-    \hline
-    10 & cheerful, cheer up, festive, jolly, jovial, merry,...\\ %  & 45 \\
-    \hline
-     \cellcolor{blue!25} 11 & \cellcolor{blue!25} brooding, contemplative, meditative,... \\ % & 22 \\
-    \hline
-    12 & aggression, aggressive, belligerence, bang,...\\ %  & 35 \\
-    \hline
-    13 & confident, encouraging, encouragement, optimism, confidence,... \\ % & 26 \\
-    \hline
-    14 & angst, anxiety, anxious, jumpy, nervous,...\\ %  & 202 \\
-    \hline
-    \cellcolor{blue!25} 15 &  \cellcolor{blue!25} earnest, heartfelt, earnestness,...\\ %  & 2 \\
-    \hline 
-     \cellcolor{blue!25}16 &  \cellcolor{blue!25}desire, hope, hopeful \\ % & 0 \\
-    \hline
-     \cellcolor{blue!25}17 &  \cellcolor{blue!25} pessimism, cynical, pessimistic, weltschmerz,... \\ % & 0 \\
-    \hline
-    18 & excitement, exciting, exhilarating, thrill, ardor,... \\ % & 137 \\
-    \hline
-    19 & shamefacedness, confusion, shame,...\\ %  & 122 \\
- 
-    \hline
-\end{tabular}
-\caption{The 19 emotional categories resulting from the Last.fm analysis}
-\end{table}
-
-\clearpage
-
-\end{document}
