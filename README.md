@@ -39,12 +39,15 @@ Hopefully, there exists fast and free approaches to collect emotion annotations 
 
 
 Still, as the reader can expect, this dataset of tags is not deprived from weaknesses. As instance, it does not always include direct useful or desired emotion-related tags, such as \textit{sadness} or \textit{happiness}. It provides a range of different tags, which may be not relevant in this context of sentiment classification. Examples of irrelevant tags were related to a non-affective aspect ("beat", "trance") or were matter of personal taste (e.g.\ "bad", "good"). Others tags may relate the style of the songs or the period of release (e.g.\ "80s"), which are not useful in this context neither. Besides the fact that social tags contain irrelevant information, there exist ambiguous tags that can cause confusion. This is notably the case of the "love" tag. Does it mean the song is about love or did the annotator mean he loved the song ? 
-\\
+
 
 Table 4.2 shows the most 10 frequent tags that can be found in the dataset. It confirms the idea that social tags can be noisy and not directly emotion-related. The fact the "love" term is ranked 5th in the top 10 most frequent tags can give some clues about its ambiguous meaning too. 
-\\
 
-![alt text](https://github.com/thomasberton/musicemotionrecognition/blob/master/pictures/junktags.png)
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/thomasberton/musicemotionrecognition/blob/master/pictures/junktags.png">
+</p>
+
 
 This shows the need of some cleanup. For this reason junk tags and tags with little or no affective meanings have been filtered out. A linguistic resource, WordNet-Affect, has been particularly helpful for this task. It is an extension of WordNet defined as "a large lexical database of English nouns, verbs, adjectives and adverbs grouped into sets of synonyms i.e. synsets" . Each synset represent a distinct concept". WordNet-Affect, its extension, provides a powerful support by linking each non-noun or noun tag to the emotion synset it refer. It helped to filter tags which bear an emotional meaning from the non-interesting tags. For instanceWor dNet-Affect would output, given the tag "sadly", the synset "sad", whereas it would output nothing for a "80s" tag.
 
