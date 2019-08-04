@@ -44,6 +44,8 @@ Still, as the reader can expect, this dataset of tags is not deprived from weakn
 Table 4.2 shows the most 10 frequent tags that can be found in the dataset. It confirms the idea that social tags can be noisy and not directly emotion-related. The fact the "love" term is ranked 5th in the top 10 most frequent tags can give some clues about its ambiguous meaning too. 
 \\
 
+![alt text](https://github.com/thomasberton/musicemotionrecognition/blob/master/pictures/junktags.png)
+
 This shows the need of some cleanup. For this reason junk tags and tags with little or no affective meanings have been filtered out. A linguistic resource, WordNet-Affect, has been particularly helpful for this task. It is an extension of WordNet defined as "a large lexical database of English nouns, verbs, adjectives and adverbs grouped into sets of synonyms i.e. synsets" . Each synset represent a distinct concept". WordNet-Affect, its extension, provides a powerful support by linking each non-noun or noun tag to the emotion synset it refer. It helped to filter tags which bear an emotional meaning from the non-interesting tags. For instanceWor dNet-Affect would output, given the tag "sadly", the synset "sad", whereas it would output nothing for a "80s" tag.
 
 <!--%% Il faut clarifier les chiffres : combien de tags avec last fm et combien de mots uniques avec wordnet-affect. COmbien matchent ? 
