@@ -1,6 +1,21 @@
+```tex
+\documentclass[a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+%\setmainfont[]{DejaVu Serif}
+
+\begin{document}
+
+Xin chào thế giới. This is Hello World in Vietnamese.
+
+\end{document}
+
+
 \documentclass{report}
 
 \usepackage[utf8]{inputenc}
+```
 
 
 % \title{Memoire}
