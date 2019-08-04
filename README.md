@@ -31,30 +31,12 @@ Once the audio files and lyrics have been collected, one must separate the vocal
 Hopefully there exists a well-known software, used both by NLP scientists and music producers, called RX7 (manufactured by iZotope) . It provides a powerful interface for audio experiments and it often refers as an excellent software for noise removal . Using this software in the context of Music Information Retrieval is unprecedented. This software has chosen because it provides a \textit{Music Rebalance} option, which is particularly useful for this source separation problem. Once the original audio file is loaded in the software, this option proposes multiple modifications of the audio as shown in Figure 4.1 : tweaking the loudness of the voice, bass and so on. In our case, two setups were important : either isolating the voice, either remove it. This infers the following adjustments shown at (a) and (b). The Gain option is used to adjust the level (dB) of the voice/bass/percussion or the others. The \textit{sensivity} rate defines the percentage of the input signal considered as e.g. Voice by the separation algorithm. Set at low values, this induces the separation algorithm to narrowly define the vocal content of the signal. If the resulting signal contains less audio bleed from the other instruments, this reduces the vocal clarity due to its sharpened approach. Higher values help to reduce this lack of clarity but consider more bleeding from the other elements. For this work, sensivity has been set to its default value : 0,5.
 
 
-<!--
-% [Part about the algorithm behind. Need more info because nothing is available on the internet, probably for copyright secret. Work in progress]
-
-<!--\begin{figure}[!h]
- <!--    \centering
-<!--     \subfloat[][Parameters to isolate the acapella]
-<!--     {\includegraphics[scale=0.5]{iso_voice.JPG}\label{<figure1>}}
-<!-- /     \hspace{1 cm} -->
-<!--      \subfloat[][Parameters to remove the vocals] -->
-<!--      {\includegraphics[scale=0.5]{iso_instru.JPG}\label{<figure2>}} -->
-<!--      \label{steady_state} -->
-<!--      \caption{The two different operations during the source separation process} -->
-<!-- \end{figure} -->
-
-<!-- % The process of isolating vocalss
-<!--% Regarding the previous works on this topic, most of them focused on isolating vocals from a stereo recording, where the position of the vocals  is useful for separation. However,
-
-
 ## Identifying Mood Categories
 As said previously, the perception of emotion is subjective. This means one song may be considered as calm for a person, while another person would judge this song as happy. This, once again, proves the challenging difficulties MIR must deal with. This arises the question of “how to correctly label a song ?". This is only more complicated by the fact that perceived emotions is influenced by the mood of the listener and the place he listens to the music \cite{huron}. For this reason, platforms such as All Music Guide have invested a lot of time, money and human resources to annotate their music databases with high-quality emotions tags. For this reason they are unfortunately unlikely to share their data with the MIR research community. 
-\\
+
 
 Hopefully, there exists fast and free approaches to collect emotion annotations from human listeners. One may cite Last.fm, which has already been mentioned above. This website allows users to associate social tags to songs through their audio player interface. In 2007, no more than different 960,000 tags were identified and used for annotate songs. This is this dataset that has been used to determine the emotion of the songs in the database.
-\\
+
 
 Still, as the reader can expect, this dataset of tags is not deprived from weaknesses. As instance, it does not always include direct useful or desired emotion-related tags, such as \textit{sadness} or \textit{happiness}. It provides a range of different tags, which may be not relevant in this context of sentiment classification. Examples of irrelevant tags were related to a non-affective aspect ("beat", "trance") or were matter of personal taste (e.g.\ "bad", "good"). Others tags may relate the style of the songs or the period of release (e.g.\ "80s"), which are not useful in this context neither. Besides the fact that social tags contain irrelevant information, there exist ambiguous tags that can cause confusion. This is notably the case of the "love" tag. Does it mean the song is about love or did the annotator mean he loved the song ? 
 \\
