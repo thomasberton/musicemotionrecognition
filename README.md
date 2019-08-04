@@ -3,7 +3,7 @@
 
  One major drawback of Music Emotion Recognition is the lack of of cooperation across research institutes.  Each one uses a different database and conclusions from previous works are unfortunately not consistent. As result, these conclusions cannot be extended to other datasets. 
 
-To address this problem, MIR researchers should establish benchmark emotional databases so that results would come from the same database and comparable.  A common database, analyzed by experts, would be time-saving and reduce errors such as songs labeled with a non-corresponding emotion. 
+MIR researchers should establish benchmark emotional databases so that results would come from the same database and comparable.  A common database, analyzed by experts, would be time-saving and reduce errors such as songs labeled with a non-corresponding emotion. 
 
 To tackle this problem and contribute to the Music Emotion Recognition, we freely released all the databases that have been used in MER-based thesis. The goal of the latter was to determine which support, i.e. the vocals, the instrumentals or the lyrics is better at predicting the expressed emotion of the song. The reader, and any enthusiastic person, will find here multiple databases on which music emotion classification can be based. The experiments were based on Random Forests and Logistic Regressions. Classification based on instrumental features performed the highest accuracy, i.e. 75 %. The combination of the three supports provided an 67 % accuracy. Then the vocals came with an accuracy 63 %, followed by the lyrics with 49 % 
 
