@@ -10,34 +10,8 @@ To address this problem, MIR researchers should establish benchmark emotional da
 
 As said previously, it does not exist a dataset that gained general acceptance. However, some ones stood out from the others and are more often used than others. As instance, it is notably the case of the \textit{Million Song Database}, largely used for MIR tasks. For its well-known reputation and ease of use, this is one of the datasets that has been chosen for this thesis. 
 
-The Million Song Dataset (abr. MSD) is provided by The Echo Nest\footnote{Music platform for developers, which was originally a research spin-off from the MIT Media Lab to understand the audio and textual content of recorded music. It is defined as a "freely-available collection of audio features and metadata for a million contemporary popular music tracks." In other words, the dataset gathers metadata and some features analysis for one million songs. One may precise that it does not include any audio nor emotions. Due to the large set of this set (originally 280 GB) only a subset of it, i.e. 10,000 songs (1% of the global dataset), has been considered to work on it. This subset is also provided by The Echo Nest, and songs are said to be collected randomly from the original MSD. Table 4.1 shows some of the 45 fields associated with each track in the database.
+The Million Song Dataset (abr. MSD) is provided by The Echo Nest\footnote{Music platform for developers, which was originally a research spin-off from the MIT Media Lab to understand the audio and textual content of recorded music. It is defined as a "freely-available collection of audio features and metadata for a million contemporary popular music tracks." In other words, the dataset gathers metadata and some features analysis for one million songs. One may precise that it does not include any audio nor emotions. Due to the large set of this set (originally 280 GB) only a subset of it, i.e. 10,000 songs (1% of the global dataset), has been considered to work on it. This subset is also provided by The Echo Nest, and songs are said to be collected randomly from the original MSD. 
 
-
-
-<!--\begin{table}[!h]
-\centering
-\begin{tabular}{|c|c|}
-  \hline
-  \textbf{Features} & \textbf{Value} \\
-  \hline
-  artist\_mbid &  db92a151-1ac2-438b-bc43-b82e149ddd50  \\
-  \hline
-  %The musicbrainz.org\footnote{MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.} tags &  4  \\
-  %\hline
-  artist$\_$name &  Rick Astley \\
-  \hline
-   title & Never Gonna Give You Up \\
-  \hline
-   danceability & 0.0 (which means not analyzed) \\
-  \hline 
-   loudness &  -7.75 \\
-  \hline
-  year & 1987 \\
-  \hline
-\end{tabular}
-
-<!--\caption{Example of some features for a track in the MSD}
-\end{table}
 
 By looking at the features which have been already computed in the MSD, one may ask the interest of having audio files if some of their characteristics have already been computed. The reader should remember that these features have been computed on the whole song and not on the instrumental nor isolated vocals. Downloading the audio files to recompute the different respectively for the vocals and the instrumental is thus necessary.
 
