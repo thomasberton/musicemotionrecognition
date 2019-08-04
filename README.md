@@ -45,7 +45,7 @@ Table 4.2 shows the most 10 frequent tags that can be found in the dataset. It c
 
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/thomasberton/musicemotionrecognition/blob/master/pictures/junktags.png">
+  <img width="400" height="300" src="https://github.com/thomasberton/musicemotionrecognition/blob/master/pictures/junktags.png">
 </p>
 
 
